@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(voteimg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            color:rgb(15, 18, 223);
+            font-size: solid;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <h2>vote validation</h2>
+    <label>enter your age</label>
+    <input id="ageinput" type="number" min="0" placeholder="e.g.">
+
+    <button id="checkbtn">check eligibility</button>
+    <p id="result"></p>
+    <script>
+        const ageinput=document.getElementById("ageinput");
+        const resultP=document.getElementById("result");
+
+        checkbtn.addEventListener('click',function(){
+            const raw=ageinput.value;
+            const age=Number(raw);
+
+            if (raw.trim()==''||Number.isNaN(age)){
+
+                resultP.style.color='crimson';
+                resultP.textContent='age cannot be negative';
+               return;
+                
+            }
+            if(age<0){
+                resultP.style.color='orange';
+                resultP.textContent='age cannot be negative';
+                return;
+            }
+            if(age<18){
+                resultP.style.color='orange';
+                resultP.textContent='you are not eligible';
+                
+            }
+            else if(age==18){
+                resultP.style.color='green';
+                resultP.textContent='congrats ur eligible to vote now';
+                
+
+            }
+            else{
+                resultP.style.color='green';
+                resultP.textContent='you are eligible to vote';
+            }
+            
+        }
+    )
+
+    </script>
+    
+
+
+</body>
+</html>
